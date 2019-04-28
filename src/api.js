@@ -1,4 +1,5 @@
 import axios from "axios";
+import { get } from "https";
 
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
@@ -8,6 +9,17 @@ const api = axios.create({
   }
 });
 
-api.get("tv/popular");
+//api.get("tv/popular");
+//export default api;
 
-export default api;
+export const MovieApi = {
+  nowPlaying: () => api.get("movie/now_playing"),
+  upComing: () => api.get("movie/upcoming"),
+  popular: () => api.get("movie/popular")
+};
+
+export const TVApi = {
+  popular: () => api.get("tv/popular"),
+  topRated: () => api.get("tv/top_rated"),
+  airingToday: () => api.get("tv/airing_today")
+};
