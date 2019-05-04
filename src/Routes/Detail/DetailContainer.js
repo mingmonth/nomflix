@@ -41,10 +41,10 @@ export default class extends React.Component {
         const request = await tvApi.detail(parseId);
         result = request.data;
       }*/
-      const { data: result } = isMovie
+      ({ data: result } = isMovie
         ? await moviesApi.detail(id)
-        : await tvApi.detail(id);
-      console.log(result);
+        : await tvApi.detail(id));
+      //console.log(result);
     } catch {
       this.setState({ error: "Can't find anything." });
     } finally {
@@ -55,6 +55,7 @@ export default class extends React.Component {
   render() {
     // console.log(this.props);
     const { result, error, loading } = this.state;
+    console.log(result);
     console.log(this.state);
     return <DetailPresenter result={result} error={error} loading={loading} />;
   }
