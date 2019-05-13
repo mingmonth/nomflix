@@ -10,6 +10,7 @@ const Container = styled.div`
 
 const Form = styled.form`
   margin-bottom: 50px;
+  width: 100%;
 `;
 
 const Input = styled.input`
@@ -40,7 +41,7 @@ const SearchPresenter = ({
     ) : (
       <>
         {movieResults && movieResults.length > 0 && (
-          <Section title="Movie Reulsts">
+          <Section title="Movies Reulsts">
             {movieResults.map(movie => (
               <span key={movie.id}>{movie.title}</span>
             ))}
